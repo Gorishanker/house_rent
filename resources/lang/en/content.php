@@ -105,6 +105,7 @@ return [
         'product' => 'Product|Products',
         'page_content' => 'Page Contents',
         'category' => 'Category|Category Management',
+        'property' =>'Property|Properties'
     ),
 
 
