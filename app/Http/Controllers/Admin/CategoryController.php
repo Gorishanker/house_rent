@@ -107,4 +107,31 @@ class CategoryController extends Controller
 
         return view($this->edit_view, compact('category'));
     }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(CategoryRequest $request, Category $category)
+    {
+        $input = $request->all();
+        $category->update($input);
+
+        if ($request->hasFile('category_images')) {
+            $images = FileService::multipleImageUploader($request, 'category_images', $this->upload_image_directory);
+
+            for ($i = 0; $i < count($images); $i++) {
+                $category_images[$i]['product_id'] = $category->id;
+                $category_images[$i]['name'] = $images[$i];
+            }
+            CategoryImage::insert($category_images);
+        }
+
+        return redirect()->back()
+            ->with('success', $this->mls->messageLanguage('updated', 'category', 1));
+    }
+
 }
