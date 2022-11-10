@@ -31,9 +31,9 @@
                         <div class="flex-lg-row-fluid me-0 me-lg-20">
 
                             <!--begin::Form-->
-                            {!! Form::open(['route' => 'admin.categories.store', 'method' => 'POST', 'class' => 'form mb-15', 'enctype' => 'multipart/form-data']) !!}
+                            {!! Form::open(['route' => 'admin.properties.store', 'method' => 'POST', 'class' => 'form mb-15', 'enctype' => 'multipart/form-data']) !!}
 
-                            @include('admin.category.form')
+                            @include('admin.property.form')
                             <!--begin::Separator-->
                             <div class="separator mb-8"></div>
                             <!--end::Separator-->

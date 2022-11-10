@@ -137,7 +137,7 @@
                     "url": "{{ route('admin.categories.index') }}",
                     data: function(d) {
                         d.name = $('input[name=name]').val();
-                        d.product_id = $('input[name=category_id]').val();
+                        d.category_id = $('input[name=category_id]').val();
                         d.status = $('select[name=status]').val();
                     },
                 },

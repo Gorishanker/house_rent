@@ -45,10 +45,10 @@
                         <!--begin::Content-->
                         <div class="flex-lg-row-fluid me-0 me-lg-20">
                             <!--begin::Form-->
-                            {!! Form::model($category, ['method' => 'PATCH', 'route' => ['admin.categories.update', $category->id], 'class' => 'form mb-15', 'enctype' => 'multipart/form-data']) !!}
+                            {!! Form::model($property, ['method' => 'PATCH', 'route' => ['admin.properties.update', $property->id], 'class' => 'form mb-15', 'enctype' => 'multipart/form-data']) !!}
                             @csrf
-                            <input type="hidden" name="id" value="{{ $category->id }}">
-                            @include('admin.category.form')
+                            <input type="hidden" name="id" value="{{ $property->id }}">
+                            @include('admin.property.form')
 
                             <!--begin::Actions-->
                             <div class="card-footer d-flex justify-content-end py-6 px-9">

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminErrorPageController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\PropertyContrller;
 use App\Http\Controllers\Customer\Auth\LoginController as AuthLoginController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -87,6 +88,10 @@ Route::group(['middleware' => ['optimizeImages'], 'prefix' => 'admin', 'as' => '
         // Category Manager
 
         Route::resource('/categories', CategoryController::class);
+
+        // Property Manager
+
+        Route::resource('/properties', PropertyContrller::class);
 
         //Setting manager
         Route::controller(SettingController::class)->group(function () {

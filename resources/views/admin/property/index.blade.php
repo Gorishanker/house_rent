@@ -84,7 +84,7 @@
         'filter' => true,
         'create_btn' => [
             'status' => true,
-            'route' => route('admin.categories.create'),
+            'route' => route('admin.properties.create'),
             'name' => __('messages.create', [
                 'name' => trans_choice('content.product', 1),
             ]),
@@ -102,11 +102,10 @@
     @include('admin.layouts.components.datatable_header', [
         'data' => [
             ['classname' => '', 'title' => trans_choice('content.id_title', 1)],
-            // ['classname' => 'min-w-125px', 'title' => trans_choice('content.name_title', 1)],
-            ['classname' => 'min-w-125px', 'title' => trans_choice('content.category_title', 1)],
-            // ['classname' => 'min-w-125px', 'title' => trans_choice('content.quantity_title', 1)],
-            ['classname' => 'min-w-125px', 'title' => trans_choice('content.created_at_title', 1)],
-            ['classname' => 'min-w-125px', 'title' => trans_choice('content.updated_at_title', 1)],
+            ['classname' => 'min-w-125px', 'title' => trans_choice('content.title_title', 1)],
+            ['classname' => 'min-w-125px', 'title' => trans_choice('content.rent_title', 1)],
+            ['classname' => 'min-w-125px', 'title' => trans_choice('content.room_category_title', 1)],
+            ['classname' => 'min-w-125px', 'title' => trans_choice('content.status_title', 1)],
             ['classname' => 'min-w-100px', 'title' => trans_choice('content.action_title', 1)],
         ],
     ])
@@ -134,18 +133,18 @@
 
                 },
                 ajax: {
-                    "url": "{{ route('admin.categories.index') }}",
-                    data: function(d) {
-                        d.name = $('input[name=name]').val();
-                        d.product_id = $('input[name=category_id]').val();
-                        d.status = $('select[name=status]').val();
-                    },
+                    "url": "{{ route('admin.properties.index') }}",
+                    // data: function(d) {
+                    //     d.name = $('input[name=name]').val();
+                    //     d.property_id = $('input[name=property_id]').val();
+                    //     d.status = $('select[name=status]').val();
+                    // },
                 },
                 dom: `<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>" +
                       "<'row'<'col-sm-12'tr>>" +
                       "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>`,
                 columnDefs: [{
-                    targets: [4],
+                    targets: [5],
                     orderable: false,
                     searchable: false,
                     // className: 'mdl-data-table__cell--non-numeric'
@@ -160,10 +159,10 @@
                     },
 
                     {
-                        data: 'name',
-                        name: 'name',
+                        data: 'title',
+                        name: 'title',
                         render: function(data, type, row, meta) {
-                            var show_url = `{{ url('/') }}/admin/categories/` + row['id'] +
+                            var show_url = `{{ url('/') }}/admin/properties/` + row['id'] +
                                 `?tab=details`;
                             return ` <a href="${show_url}">
                                         <div class="font-medium whitespace-no-wrap">${data}</div>
@@ -171,28 +170,38 @@
                         }
                     },
                     {
-                        data: 'created_at',
-                        name: 'created_at',
+                        data: 'rent',
+                        name: 'rent',
                         render: function(data, type, row, meta) {
                             return `<div class="font-medium whitespace-no-wrap">${data}</div>`;
                         }
                     },
                     {
-                        data: 'updated_at',
-                        name: 'updated_at',
+                        data: 'room_category',
+                        name: 'room_category',
                         render: function(data, type, row, meta) {
                             return `<div class="font-medium whitespace-no-wrap">${data}</div>`;
                         }
                     },
+                    {
+                        data: 'is_active',
+                        name: 'is_active',
+                        render: function(data, type, row, meta) {
+                            var attr = `data-id="${ row['id'] }" data-status="${ data }"`;
+                            var avtive_data = actionActiveButton(data, attr);
+                            return avtive_data;
+                        }
+                    },
+
                     {
                         data: 'id',
                         name: 'id',
                         // visible:false,
                         render: function(data, type, row, meta) {
 
-                            var edit_url = `{{ url('/') }}/admin/categories/` + row['id'] +
+                            var edit_url = `{{ url('/') }}/admin/properties/` + row['id'] +
                                 `/edit/?tab=edit`;
-                            var show_url = `{{ url('/') }}/admin/categories/` + row['id'] +
+                            var show_url = `{{ url('/') }}/admin/properties/` + row['id'] +
                                 `?tab=details`;
                             var button = actionButton(edit_url, row['id']);
 
@@ -214,14 +223,14 @@
         $(document).on('click', '.clsdelete', function() {
             var id = $(this).attr('data-id');
             var e = $(this).parent().parent();
-            var url = `{{ url('/') }}/admin/categories/` + id;
+            var url = `{{ url('/') }}/admin/properties/` + id;
             tableDeleteRow(url, oTable);
         });
 
         $(document).on('click', '.clsstatus', function() {
             var id = $(this).attr('data-id');
             var status = $(this).attr('data-status');
-            var url = `{{ url('/') }}/admin/categories/status/` + id + `/` + status;
+            var url = `{{ url('/') }}/admin/properties/status/` + id + `/` + status;
             tableChnageStatus(url, oTable);
         });
     </script>

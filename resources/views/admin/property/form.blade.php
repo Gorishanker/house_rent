@@ -21,56 +21,116 @@
 
     <!--begin::Input group-->
     <div class="row mb-6">
-        {{-- <!--begin::Label-->
+        <!--begin::Label-->
         <label
             class="col-lg-2 col-form-label required fw-bold fs-6">{{ trans_choice('content.title_title', 1) }}</label>
         <!--end::Label-->
         <!--begin::Col-->
         <div class="col-lg-4 fv-row">
-            {!! Form::text('name', null, ['placeholder' => trans_choice('content.name_title', 1), 'class' => 'form-control form-control-lg form-control-solid']) !!}
+            {!! Form::text('title', null, ['placeholder' => trans_choice('content.title_title', 1), 'class' => 'form-control form-control-lg form-control-solid']) !!}
         </div>
-        <!--end::Col--> --}}
+        <!--end::Col-->
 
         <!--begin::Label-->
         <label
-            class="col-lg-2 col-form-label required fw-bold fs-6">{{ trans_choice('content.name_title', 1) }}</label>
+            class="col-lg-2 col-form-label required fw-bold fs-6">{{ trans_choice('content.rent_title', 1) }}</label>
         <!--end::Label-->
         <!--begin::Col-->
         <div class="col-lg-4 fv-row">
-            {!! Form::text('name', null, ['placeholder' => trans_choice('content.name_title', 1), 'value' => 'Max', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0']) !!}
+            {!! Form::number('rent', null, ['placeholder' => trans_choice('content.rent_title', 1), 'value' => 'Max', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0']) !!}
         </div>
         <!--end::Col-->
     </div>
     <!--end::Input group-->
 
     <!--begin::Input group-->
-    {{-- <div class="row mb-6">
+     <div class="row mb-6">
         <!--begin::Label-->
         <label class="col-lg-2 col-form-label fw-bold fs-6">
-            <span class="required">{{ trans_choice('content.quantity_title', 1) }}</span>
+            <span class="required">{{ trans_choice('content.address_title', 1) }}</span>
             <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip"
                 title="Quantity should be atleast 1."></i>
         </label>
         <!--end::Label-->
         <!--begin::Col-->
         <div class="col-lg-4 fv-row">
-            {!! Form::number('quantity', null, ['placeholder' => trans_choice('content.quantity_title', 1), 'class' => 'form-control form-control-lg form-control-solid']) !!}
+            {!! Form::text('address', null, ['placeholder' => trans_choice('content.address_title', 1), 'class' => 'form-control form-control-lg form-control-solid']) !!}
         </div>
         <!--end::Col-->
 
         <!--begin::Label-->
         <label class="col-lg-2 col-form-label fw-bold fs-6">
-            <span class="required">{{ trans_choice('content.price_title', 1) }}</span>
+            <span class="required">{{ trans_choice('content.size_title', 1) }}</span>
             <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip"
-                title="Price should be atleast 1."></i>
+                title="Price should be Require."></i>
         </label>
         <!--end::Label-->
         <!--begin::Col-->
         <div class="col-lg-4 fv-row">
-            {!! Form::number('price', null, ['placeholder' => trans_choice('content.price_title', 1), 'class' => 'form-control form-control-lg form-control-solid']) !!}
+            {!! Form::text('size', null, ['placeholder' => trans_choice('content.price_title', 1), 'class' => 'form-control form-control-lg form-control-solid']) !!}
         </div>
         <!--end::Col-->
-    </div> --}}
+    </div>
+    <!--end::Input group-->
+
+    <!--begin::Input group-->
+    <div class="row mb-6">
+        <!--begin::Label-->
+        <label class="col-lg-2 col-form-label fw-bold fs-6">
+            <span class="required">{{ trans_choice('content.room_category_title', 1) }}</span>
+            <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip"
+                title="Quantity should be atleast 1."></i>
+        </label>
+        <!--end::Label-->
+        <!--begin::Col-->
+        <div class="col-lg-4 fv-row">
+            {!! Form::text('room_category', null, ['placeholder' => trans_choice('content.room_category_title', 1), 'class' => 'form-control form-control-lg form-control-solid']) !!}
+        </div>
+        <!--end::Col-->
+
+        <!--begin::Label-->
+        <label class="col-lg-2 col-form-label fw-bold fs-6">
+            <span class="required">{{ trans_choice('content.additional_facilities_title', 1) }}</span>
+            <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip"
+                title="Price should be Require."></i>
+        </label>
+        <!--end::Label-->
+        <!--begin::Col-->
+        <div class="col-lg-4 fv-row">
+            {!! Form::text('additional_facilities', null, ['placeholder' => trans_choice('content.additional_facilities_title', 1), 'class' => 'form-control form-control-lg form-control-solid']) !!}
+        </div>
+        <!--end::Col-->
+    </div>
+    <!--end::Input group-->
+
+    <!--begin::Input group-->
+    <div class="row mb-6">
+        <!--begin::Label-->
+        <label class="col-lg-2 col-form-label fw-bold fs-6">
+            <span class="required">{{ trans_choice('content.apt_overview_title', 1) }}</span>
+            <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip"
+                title="Quantity should be atleast 1."></i>
+        </label>
+        <!--end::Label-->
+        <!--begin::Col-->
+        <div class="col-lg-4 fv-row">
+            {!! Form::text('apt_overview', null, ['placeholder' => trans_choice('content.apt_overview_title', 1), 'class' => 'form-control form-control-lg form-control-solid']) !!}
+        </div>
+        <!--end::Col-->
+
+        <!--begin::Label-->
+        <label class="col-lg-2 col-form-label fw-bold fs-6">
+            <span class="required">{{ trans_choice('content.features_title', 1) }}</span>
+            <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip"
+                title="Price should be Require."></i>
+        </label>
+        <!--end::Label-->
+        <!--begin::Col-->
+        <div class="col-lg-4 fv-row">
+            {!! Form::text('features', null, ['placeholder' => trans_choice('content.features_title', 1), 'class' => 'form-control form-control-lg form-control-solid']) !!}
+        </div>
+        <!--end::Col-->
+    </div>
     <!--end::Input group-->
 
     <!--begin::Input group-->
@@ -78,20 +138,20 @@
 
         <!--begin::Label-->
         <label class="col-lg-2 col-form-label fw-bold fs-6">
-            <span class="">{{ trans_choice('content.products.upload_categories_images', 1) }}</span>
+            <span class="">{{ trans_choice('content.products.upload_properties_images', 1) }}</span>
             <i class=" fas
                 fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
-                title="Upload Category Image"></i>
+                title="Upload Property Image"></i>
         </label>
         <!--end::Label-->
         <!--begin::Col-->
         <div class="col-lg-4 fv-row">
-            <input type="file" name="category_images[]" id="category_image"
+            <input type="file" name="property_images[]" id="property_image"
                 class="form-control form-control-lg form-control-solid"
                 placeholder={{ __('placeholder.upload_image') }} multiple="true" accept="image/*">
         </div>
         <!--end::Col-->
-        <div class="col-lg-6 categoryImgPreview"></div>
+        <div class="col-lg-6 propertyImgPreview"></div>
 
         <!--begin::Col-->
         <div class="col-md-6 fv-row">
@@ -109,23 +169,23 @@
                 placeholder={{ __('placeholder.upload_image') }} multiple="true" accept="image/*">
             <!--end::Select-->
             <div class="form-group row">
-                <div class="col-lg-12 categoryImgPreview"></div>
+                <div class="col-lg-12 propertyImgPreview"></div>
             </div> --}}
             <div>
-                @if (!empty($category->category_images))
-                    @foreach ($category->category_images as $category_image)
+                @if (!empty($property->property_images))
+                    @foreach ($property->property_images as $property_image)
                         @php
-                            $image_id = $category->id;
+                            $image_id = $property->id;
                         @endphp
-                        <div class="image-input image-input-outline category_div">
+                        <div class="image-input image-input-outline property_div">
                             <span
-                                class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-white shadow dlete_category_img"
-                                data-id="{{ $image_id }}" data-bs-toggle="tooltip" title="Delete Category Image"
+                                class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-white shadow dlete_property_img"
+                                data-id="{{ $image_id }}" data-bs-toggle="tooltip" title="Delete property Image"
                                 style="transform: translate(70px,25px);">
                                 <i class="bi bi-x fs-2"></i>
                             </span>
                             <div class="image-input-wrapper w-80px h-80px m-2"
-                                style="background-image: url({{ $category_image->name }})"></div>
+                                style="background-image: url({{ $property_image->name }})"></div>
                         </div>
                     @endforeach
                 @endif
@@ -139,17 +199,17 @@
 
 @push('scripts')
     <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js') }}"></script>
-    {!! JsValidator::formRequest('App\Http\Requests\Admin\CategoryRequest', 'form') !!}
+    {!! JsValidator::formRequest('App\Http\Requests\Admin\PropertyRequest', 'form') !!}
 
     <script>
-        $('#category_image').on('change', function() {
-            multipleImagesPreview(this, 'div.categoryImgPreview');
+        $('#property_image').on('change', function() {
+            multipleImagesPreview(this, 'div.propertyImgPreview');
         });
 
-        $(document).on('click', '.dlete_category_img', function() {
+        $(document).on('click', '.dlete_property_img', function() {
             var id = $(this).data('id');
-            var elem = $(this).parents('.category_div');
-            var url = `{{ url('/') }}/admin/categories/delete-images/` + id;
+            var elem = $(this).parents('.property_div');
+            var url = `{{ url('/') }}/admin/properties/delete-images/` + id;
             deleteImage(url, elem);
         });
     </script>
