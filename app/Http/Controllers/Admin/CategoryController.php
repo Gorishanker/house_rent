@@ -124,7 +124,7 @@ class CategoryController extends Controller
             $images = FileService::multipleImageUploader($request, 'category_images', $this->upload_image_directory);
 
             for ($i = 0; $i < count($images); $i++) {
-                $category_images[$i]['product_id'] = $category->id;
+                $category_images[$i]['category_id'] = $category->id;
                 $category_images[$i]['name'] = $images[$i];
             }
             CategoryImage::insert($category_images);
@@ -132,6 +132,35 @@ class CategoryController extends Controller
 
         return redirect()->back()
             ->with('success', $this->mls->messageLanguage('updated', 'category', 1));
+    }
+
+     /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Category $category)
+    {
+        $result = $category->delete();
+
+        if ($result) {
+            return response()->json([
+                'status' => 1,
+                'title' => $this->mls->onlyNameLanguage('deleted_title'),
+                'message' => $this->mls->onlyNameLanguage('category_deleted'),
+                'status_name' => 'success'
+            ]);
+        } else {
+            return response()->json([
+                'status' => 0,
+                'title' => $this->mls->onlyNameLanguage('deleted_title'),
+                'message' => $this->mls->onlyNameLanguage('Category has not deleted'),
+                'status_name' => 'error'
+            ]);
+        }
+        return redirect()->route($this->index_route_name)
+            ->with('success', $this->mls->messageLanguage('deleted', 'category', 1));
     }
 
 }

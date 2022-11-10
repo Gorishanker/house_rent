@@ -45,14 +45,14 @@
                         <!--begin::Content-->
                         <div class="flex-lg-row-fluid me-0 me-lg-20">
                             <!--begin::Form-->
-                            {!! Form::model($category, ['method' => 'PATCH', 'route' => ['admin.categories.update', $category->id], 'class' => 'form mb-15', 'enctype' => 'multipart/form-data']) !!}
+                            {!! Form::model($product, ['method' => 'PATCH', 'route' => ['admin.products.update', $product->id], 'class' => 'form mb-15', 'enctype' => 'multipart/form-data']) !!}
                             @csrf
-                            <input type="hidden" name="id" value="{{ $category->id }}">
+                            <input type="hidden" name="id" value="{{ $product->id }}">
                             @include('admin.product.form')
 
                             <!--begin::Actions-->
                             <div class="card-footer d-flex justify-content-end py-6 px-9">
-                                <a href="{{ route('admin.categories.index') }}"
+                                <a href="{{ route('admin.products.index') }}"
                                     class="btn btn-light btn-active-light-primary me-2 text-black">{{ __('content.back_title') }}</a>
                                 <button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit">Save
                                     Changes</button>
