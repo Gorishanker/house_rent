@@ -177,7 +177,7 @@
                     </div>
 
                     <div class="menu-item">
-                        <a class="menu-link {{ checkActiveSideBar(['Property']) ? 'menu-item active' : '' }}"
+                        <a class="menu-link {{ checkActiveSideBar(['properties']) ? 'menu-item active' : '' }}"
                             href="{{ route('admin.properties.index') }}">
                             <span class="menu-icon">
                                 <!--begin::Svg Icon | path: icons/duotone/General/User.svg-->

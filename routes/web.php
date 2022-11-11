@@ -4,7 +4,9 @@ use App\Http\Controllers\Admin\AdminErrorPageController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PropertyContrller;
+use App\Http\Controllers\Customer\Auth\HouseRentController;
 use App\Http\Controllers\Customer\Auth\LoginController as AuthLoginController;
+use App\Http\Controllers\Customer\Auth\SingleHouseController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -118,5 +120,11 @@ Route::group(['middleware' => ['optimizeImages'], 'prefix' => 'admin', 'as' => '
         Route::post('/login', 'sign_up')->name('sign_up');
         Route::post('/logout', 'logout')->name('logout');
     });
+    Route::controller(SingleHouseController::class)->group(function () {
+        Route::get('single_house', 'property')->name('single_house');
+
+    });
+
+    // Route::get('houserent', [HouseRentController::class, 'category'])->name('home1st');
 
 // });

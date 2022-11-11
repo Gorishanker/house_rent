@@ -51,3 +51,6 @@
     @include('layouts.partilas.footer')
 
 </body>
+
+
+</html>
