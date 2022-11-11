@@ -67,7 +67,7 @@
         <!--end::Label-->
         <!--begin::Col-->
         <div class="col-lg-4 fv-row">
-            {!! Form::text('size', null, ['placeholder' => trans_choice('content.price_title', 1), 'class' => 'form-control form-control-lg form-control-solid']) !!}
+            {!! Form::text('size', null, ['placeholder' => trans_choice('content.size_title', 1), 'class' => 'form-control form-control-lg form-control-solid']) !!}
         </div>
         <!--end::Col-->
     </div>
@@ -138,7 +138,7 @@
 
         <!--begin::Label-->
         <label class="col-lg-2 col-form-label fw-bold fs-6">
-            <span class="">{{ trans_choice('content.products.upload_properties_images', 1) }}</span>
+            <span class="">{{ trans_choice('content.upload_properties_images', 1) }}</span>
             <i class=" fas
                 fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
                 title="Upload Property Image"></i>

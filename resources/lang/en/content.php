@@ -146,6 +146,13 @@ return [
     'category_title' => 'Categories|Category',
     'created_at_title' => 'Created_at',
     'updated_at_title' => 'Updated_at',
+    'rent_title' => 'Rent',
+    'room_category_title' => 'Room Category',
+    'address_title'=> 'Address',
+    'size_title'=>'Size',
+    'additional_facilities_title'=>'Additional Facilities',
+    'features_title'=> 'Features Title',
+    'upload_properties_images'=>'Upload Property Images',
 
     //Form Data
     'please_select' => 'Please Select',
@@ -188,6 +195,7 @@ return [
     'product_history' => 'Product History|Product Histories',
     'customer_product_history' => 'Customer Product History|Customer Product Histories',
     'product' => 'Product|Products',
+    'category' => 'Category|Categories',
     'page_content' => 'Page Contents',
 
     'user_id' => 'User Id',

@@ -70,7 +70,7 @@
        </div><!-- /.container -->
    </div><!-- /.breadcrumbs-area -->
 
-   {{ dd($property) }}
+   {{-- {{ dd($property) }} --}}
 
 	<!-- ====== Apartments-Single-Area ======= -->
 	<div class="apartment-single-area">
@@ -126,19 +126,19 @@
     				<div class="family-apartment-content mobile-extend">
                         <div class="tb">
                             <div class="tb-cell">
-        					   <h3 class="apartment-title">Family Apartment</h3>
+        					   <h3 class="apartment-title">{{ $property->name }}</h3>
                             </div><!-- /.tb-cell -->
                             <div class="tb-cell">
-        					   <p class="pull-right rent">Rent/Month: $550</p>
+        					   <p class="pull-right rent">$ {{ $property->rent }}</p>
                             </div><!-- /.tb-cell -->
                         </div><!-- /.tb -->
     					<div class="clearfix"></div><!-- /.clearfix -->
-    					<p class="apartment-description default-gradient-before">3000 sq-ft., 3 Bedroom, Semi-furnished, Luxurious, South facing Apartment for Rent in Rangs Malancha, Melbourne.</p>
+    					<p class="apartment-description default-gradient-before">{{ $property->address }}</p>
     					<div class="price-details">
     						<h3>Price Details-</h3>
     						<ul>
-    							<li><span>Rent/Month: </span> $550 (negotiable)</li>
-    							<li><span>Service Charge :</span> 8,000/= Tk per month, subject to change</li>
+    							<li><span>Rent/Month: </span> $ {{ $property->rent }} (negotiable)</li>
+    							<li><span>Service Charge :</span> 8,000/k per month, subject to change</li>
     							<li><span>Security Deposit :</span> 3 month’s rent</li>
     							<li><span>Flat Release Policy :</span> 3 months earlier notice required</li>
     						</ul>
@@ -147,12 +147,11 @@
     					<div class="property-details">
     						<h3>Property Details-</h3>
     						<ul>
-    							<li><span>Address  &amp; Area :</span> Rangs Malancha, House-68, Road-6A (Dead End Road), Dhanmondi Residential Area.</li>
-    							<li><span>Flat Size :</span> 3000 Sq Feet.</li>
+    							<li><span>Address  &amp; Area :</span> {{ $property->address }}</li>
+    							<li><span>Flat Size :</span> {{ $property->size }} Sq Feet.</li>
     							<li><span>Floor :</span> A5 (5th Floor) (6 storied Building ) (South Facing Unit)</li>
-    							<li><span>Room Category :</span> 3 Large Bed Rooms with 3 Verandas, Spacious Drawing, Dining &amp; Family    Living Room, Highly Decorated Kitchen with Store Room and Servant room with attached Toilet.</li>
-    							<li><span>Facilities :</span> 1 Modern Lift, All Modern Amenities &amp; Semi Furnished.</li>
-    							<li><span>Additional Facilities :</span> a. Electricity with full generator load, b. Central Gas Geyser, c. 2 Car Parking with 1 Driver’s Accommodation, d. Community Conference Hall, e. Roof Top Beautified Garden and Grassy Ground, f. Cloth Hanging facility with CC camera </li>
+    							<li><span>Room Category :</span> {{ $property->room_category }}</li>
+    							<li><span>Facilities :</span> {{ $property->additional_facilities }} </li>
     						</ul>
     					</div><!-- /.Property -->
     					<div class="apartment-overview">
@@ -160,16 +159,7 @@
     							<div class="col-md-12">
     								<h3>Apartment Overview</h3>
     								<div class="overview">
-                                        <ul>
-                                            <li>Deposit / Bond <span class="pull-right">$225000.00</span></li>
-                                            <li>computer <span class="pull-right">03</span></li>
-                                            <li>Total Area (sq. ft) <span class="pull-right">300</span></li>
-                                            <li>Total Floors <span class="pull-right">06</span></li>
-                                            <li>Car Parking Per Space <span class="pull-right">02</span></li>
-                                            <li>Air Condition <span class="pull-right">Yes</span></li>
-                                            <li>Car Parking Per Space <span class="pull-right">02</span></li>
-                                            <li>Air Condition <span class="pull-right">Yes</span></li>
-                                        </ul>
+                                        {{ $property->apt_overview }}
                                     </div><!-- /.apartment-overview -->
     							</div><!-- /.col-md-12 -->
     						</div><!-- /.row -->
@@ -178,30 +168,9 @@
     						<div class="row">
     							<div class="col-md-6">
     								<h3 class="features-title">Indoor features:</h3>
-    								<ul class="features-list">
-    									<li>Community Hall</li>
-    									<li>Safety Grills</li>
-    									<li>Servants Room</li>
-    									<li>Servants Toilet</li>
-    									<li>Fire exit</li>
-    									<li>CCTV</li>
-    									<li>WASA connection</li>
-    									<li>DESCO connection</li>
-    									<li>TITAS GAS connection</li>
-    									<li>alcony</li>
-    									<li>Inter Com</li>
-    								</ul>
+    								{{ $property->apt_overview }}
     							</div><!-- /.col-md-6 -->
-    							<div class="col-md-6">
-    								<h3 class="features-title">Indoor features:</h3>
-    								<ul class="features-list">
-    									<li>South facing</li>
-    									<li>Roof Top Garden</li>
-    									<li>Drivers quarters</li>
-    									<li>Generator</li>
-    									<li>Lift</li>
-    								</ul>
-    							</div><!-- /.col-md-6 -->
+
     						</div><!-- /.row -->
     					</div><!-- /.indoor -->
     				</div><!-- /.family-apartment-content -->

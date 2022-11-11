@@ -1,7 +1,7 @@
 @extends('admin.layouts.base')
 @section('content')
     @include('admin.layouts.components.header',[
-    'title'=> __('messages.create', ['name' => trans_choice('content.product', 1)]),
+    'title'=> __('messages.create', ['name' => trans_choice('content.category', 1)]),
     'breadcrumbs'=> Breadcrumbs::render('admin.products.create')
     ])
 
@@ -19,7 +19,7 @@
                         <div class="overlay overlay-show">
                             <!--begin::Title-->
                             <h3 class="fs-2qx fw-bolder mb-3 m">
-                                {{ __('messages.create', ['name' => trans_choice('content.product', 1)]) }}</h3>
+                                {{ __('messages.create', ['name' => trans_choice('content.category', 1)]) }}</h3>
                             <!--end::Title-->
                         </div>
                         <!--end::Overlay-->

@@ -121,7 +121,7 @@ Route::group(['middleware' => ['optimizeImages'], 'prefix' => 'admin', 'as' => '
         Route::post('/logout', 'logout')->name('logout');
     });
     Route::controller(SingleHouseController::class)->group(function () {
-        Route::get('single_house', 'property')->name('single_house');
+        Route::get('single_house/{property}', 'property')->name('single_house');
 
     });
 

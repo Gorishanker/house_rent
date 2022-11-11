@@ -19,6 +19,7 @@ class SingleHouseController extends Controller
     {
         // dd('fh');
         // dd($id);
+        // dd($property);
         // $property = Property::get();
         return view('layouts.customercontent.singleProperty', compact('property'));
     }
