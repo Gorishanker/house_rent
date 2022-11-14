@@ -253,4 +253,7 @@ class CustomerController extends Controller
     {
         return view($this->product_history_view, compact('customer'));
     }
+
+
+
 }

@@ -207,6 +207,7 @@ return [
 
     'content_title' => 'Content',
     'slug_title' => 'Slug',
+    'apt_overview_title' =>'Apartment Overview',
 
 
 ];

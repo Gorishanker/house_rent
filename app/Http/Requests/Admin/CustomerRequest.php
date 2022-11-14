@@ -27,8 +27,8 @@ class CustomerRequest extends FormRequest
             return [
                 'name' => 'required|max:150',
                 'email' => 'required|email|max:150|unique:users,email,' . request()->id,
-                // 'password' => 'required',
-                'mobile_no' => 'required|phone:IN',
+                'password' => 'required',
+                // 'mobile_no' => 'required|phone:IN',
                 // 'image' => 'required',
             ];
         } else {
@@ -36,7 +36,7 @@ class CustomerRequest extends FormRequest
                 'name' => 'required|max:150',
                 'email' => 'required|max:150|email|unique:users,email,',
                 'password' => 'required',
-                'mobile_no' => 'required|phone:IN',
+                // 'mobile_no' => 'required|phone:IN',
                 // 'image' => 'required',
             ];
         }

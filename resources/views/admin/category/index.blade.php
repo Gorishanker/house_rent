@@ -78,7 +78,7 @@
 @section('content')
     @include('admin.layouts.components.header', [
         'title' => __('messages.list', [
-            'name' => trans_choice('content.product', 2),
+            'name' => trans_choice('content.category', 2),
         ]),
         'breadcrumbs' => Breadcrumbs::render('admin.products.index'),
         'filter' => true,
@@ -86,7 +86,7 @@
             'status' => true,
             'route' => route('admin.categories.create'),
             'name' => __('messages.create', [
-                'name' => trans_choice('content.product', 1),
+                'name' => trans_choice('content.category', 1),
             ]),
         ],
         'export' => [

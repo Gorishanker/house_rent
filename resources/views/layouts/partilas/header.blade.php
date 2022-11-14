@@ -23,7 +23,7 @@
                                                 <a href="#"><i class="fa fa-phone-square"></i>Call Us - 01623 030020</a>
                                             </li>
                                             <li>
-                                                <a href="#" class="cd-signin"><i class="fa fa-address-book"></i>Login / Register</a>
+                                                <a href="{{ route('login_coustomer') }}" class=""><i class="fa fa-address-book"></i>Login / Register</a>
                                             </li>
                                         </ul>
                                     </div><!-- /.left-content -->
@@ -69,7 +69,7 @@
                                 <a href="#"><i class="fa fa-phone-square"></i>Call Us - 01623 030020</a>
                             </li>
                             <li>
-                                <a href="#" class="cd-signin"><i class="fa fa-address-book"></i>Login / Register</a>
+                                <a href="{{ route('login_coustomer') }}" class=""><i class="fa fa-address-book"></i>Login / Register</a>
                             </li>
                             <li>
                                 <a href="#" class="main-search"><i class="fa fa-search"></i></a>
@@ -254,6 +254,6 @@
             </div>
         </div>
     </div><!-- /.header-search-content -->
-@include('layouts.partilas.loginorsignup')
+
 
 </div><!-- /.header-overlay-content -->

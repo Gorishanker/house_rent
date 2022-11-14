@@ -117,8 +117,11 @@ Route::group(['middleware' => ['optimizeImages'], 'prefix' => 'admin', 'as' => '
 
     Route::controller(AuthLoginController::class)->group(function () {
         Route::get('/houserent', 'homepage')->name('dashboard');
-        Route::post('/login', 'sign_up')->name('sign_up');
-        Route::post('/logout', 'logout')->name('logout');
+        Route::get('/houserent/login', 'login')->name('login_coustomer');
+        Route::post('/houserent/login', 'login_details')->name('login_details');
+        Route::get('houserent/sign_up', 'sign_up')->name('signup_coustomer');
+        Route::post('houserent/sign_up', 'storeSignupDetails')->name('signup_details');
+        Route::post('houserent/signup', 'signup')->name('signup');
     });
     Route::controller(SingleHouseController::class)->group(function () {
         Route::get('single_house/{property}', 'property')->name('single_house');
