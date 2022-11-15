@@ -21,7 +21,7 @@
 
                     <div class="text-content">
                         <div class="top-content">
-                           <h3><a href="apartment-single.html">{{ $property->title }}</a></h3>
+                           <h3><a href="{{ route('single_house',$property->id) }}">{{ $property->title }}</a></h3>
                            <span>
                                <i class="fa fa-map-marker"></i>
                                {{ $property->address }}

@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminErrorPageController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PropertyContrller;
+use App\Http\Controllers\Customer\Auth\CustomerLoginController;
 use App\Http\Controllers\Customer\Auth\HouseRentController;
 use App\Http\Controllers\Customer\Auth\LoginController as AuthLoginController;
 use App\Http\Controllers\Customer\Auth\SingleHouseController;
@@ -117,12 +118,19 @@ Route::group(['middleware' => ['optimizeImages'], 'prefix' => 'admin', 'as' => '
 
     Route::controller(AuthLoginController::class)->group(function () {
         Route::get('/houserent', 'homepage')->name('dashboard');
+    });
+
+
+
+    Route::controller(CustomerLoginController::class)->group(function () {
         Route::get('/houserent/login', 'login')->name('login_coustomer');
         Route::post('/houserent/login', 'login_details')->name('login_details');
         Route::get('houserent/sign_up', 'sign_up')->name('signup_coustomer');
         Route::post('houserent/sign_up', 'storeSignupDetails')->name('signup_details');
         Route::post('houserent/signup', 'signup')->name('signup');
+
     });
+
     Route::controller(SingleHouseController::class)->group(function () {
         Route::get('single_house/{property}', 'property')->name('single_house');
 

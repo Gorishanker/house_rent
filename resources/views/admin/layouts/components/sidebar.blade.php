@@ -226,7 +226,7 @@
                         </a>
                     </div>
 
-                    <div class="menu-item">
+                    {{-- <div class="menu-item">
                         <a class="menu-link {{ checkActiveSideBar(['products']) ? 'menu-item active' : '' }}"
                             href="{{ route('admin.products.index') }}">
                             <span class="menu-icon">
@@ -251,7 +251,7 @@
                             </span>
                             <span class="menu-title">{{ trans_choice('content.sidebar.product', 2) }}</span>
                         </a>
-                    </div>
+                    </div> --}}
 
                     {{-- Start::Page Content Section --}}
                     <div class="menu-item">
