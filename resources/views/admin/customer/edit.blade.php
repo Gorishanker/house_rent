@@ -2,7 +2,7 @@
 @section('content')
     @include('admin.layouts.components.header',[
     'title'=> __('messages.edit', ['name' => trans_choice('content.customer', 1)]),
-    // 'breadcrumbs'=> Breadcrumbs::render('admin.customers.edit')
+    'breadcrumbs'=> Breadcrumbs::render('admin.customers.edit')
     ])
 
     <!--begin::Post-->

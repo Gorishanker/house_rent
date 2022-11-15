@@ -138,3 +138,6 @@ Breadcrumbs::resource('categories', $mls->messageLanguage('only_name', 'category
 Breadcrumbs::resource('products', $mls->messageLanguage('only_name', 'product', 2));
 /*------------- Admin page Content  ------------------------*/
 Breadcrumbs::resource('page-contents', $mls->messageLanguage('only_name', 'page_content', 2));
+
+/*------------- Admin Categories  ------------------------*/
+Breadcrumbs::resource('properties', $mls->messageLanguage('only_name', 'property', 1));

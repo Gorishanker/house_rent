@@ -2,7 +2,7 @@
 @section('content')
     @include('admin.layouts.components.header', [
         'title' => __('messages.edit', ['name' => trans_choice('content.category', 1)]),
-        // 'breadcrumbs' => Breadcrumbs::render('admin.products.edit'),
+        'breadcrumbs' => Breadcrumbs::render('admin.properties.edit'),
     ])
 
     {{-- <!--begin::Post-->

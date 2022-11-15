@@ -79,48 +79,48 @@
 			    <div class="col-md-8">
     				<div class="corousel-gallery-content">
     					  <div class="gallery">
-    					       <div class="full-view owl-carousel">
-    					     	  <a class="item image-pop-up" href="assets/images/apartment/apartment-single.jpg">
-    					     		  <img src="assets/images/apartment/apartment-single.jpg" alt="corousel">
+    					       {{-- <div class="full-view owl-carousel"> --}}
+    					     	  <a class="item image-pop-up" href="{{asset ('storage/files/properties/1668164393_636e2b29df6d9.jpg') }}">
+    					     		  <img src="{{asset ('storage/files/properties/1668164393_636e2b29df6d9.jpg') }}" alt="corousel">
     					     	  </a>
-    					     	  <a class="item image-pop-up" href="assets/images/apartment/apartment-single-1.jpg">
-    					     		  <img src="assets/images/apartment/apartment-single-1.jpg" alt="corousel">
+    					     	  {{-- <a class="item image-pop-up" href="{{asset ('storage/files/properties/1668164393_636e2b29df6d9.jpg') }}">
+    					     		  <img src="{{asset ('storage/files/properties/1668164393_636e2b29df6d9.jpg') }}" alt="corousel">
     					     	  </a>
-    					     	  <a class="item image-pop-up" href="assets/images/apartment/apartment-single-2.jpg">
-    					     		  <img src="assets/images/apartment/apartment-single-2.jpg" alt="corousel">
+    					     	  <a class="item image-pop-up" href="{{asset ('storage/files/properties/1668164393_636e2b29df6d9.jpg') }}">
+    					     		  <img src="{{asset ('storage/files/properties/1668164393_636e2b29df6d9.jpg') }}" alt="corousel">
     					     	  </a>
-    					     	  <a class="item image-pop-up" href="assets/images/apartment/apartment-single-3.jpg">
-    					     		  <img src="assets/images/apartment/apartment-single-3.jpg" alt="corousel">
+    					     	  <a class="item image-pop-up" href="{{asset ('storage/files/properties/1668164393_636e2b29df6d9.jpg') }}">
+    					     		  <img src="{{asset ('storage/files/properties/1668164393_636e2b29df6d9.jpg') }}" alt="corousel">
     					     	  </a>
-    					     	  <a class="item image-pop-up" href="assets/images/apartment/apartment-single-4.jpg">
-    					     		  <img src="assets/images/apartment/apartment-single-4.jpg" alt="corousel">
+    					     	  <a class="item image-pop-up" href="{{asset ('storage/files/properties/1668164393_636e2b29df6d9.jpg') }}">
+    					     		  <img src="{{asset ('storage/files/properties/1668164393_636e2b29df6d9.jpg') }}" alt="corousel">
     					     	  </a>
-                                  <a class="item image-pop-up" href="assets/images/apartment/apartment-single-5.jpg">
-    					     		  <img src="assets/images/apartment/apartment-single-5.jpg" alt="corousel">
-    					     	  </a>
-    					       </div>
+                                  <a class="item image-pop-up" href="{{asset ('storage/files/properties/1668164393_636e2b29df6d9.jpg') }}">
+    					     		  <img src="{{asset ('storage/files/properties/1668164393_636e2b29df6d9.jpg') }}" alt="corousel">
+    					     	  </a> --}}
+    					       {{-- </div> --}}
 
-    					      <div class="list-view owl-carousel">
+    					      {{-- <div class="list-view owl-carousel">
     					          <div class="item">
-    					        	  <img src="assets/images/apartment/apartment-single.jpg" alt="corousel-image">
+    					        	  <img src="{{asset ('storage/files/properties/1668164393_636e2b29df6d9.jpg') }}" alt="corousel-image">
     					          </div>
     					          <div class="item">
-    					        	  <img src="assets/images/apartment/apartment-single-1.jpg" alt="corousel-image">
+    					        	  <img src="{{asset ('storage/files/properties/1668164393_636e2b29df6d9.jpg') }}" alt="corousel-image">
     					          </div>
     					          <div class="item">
-    					        	  <img src="assets/images/apartment/apartment-single-2.jpg" alt="corousel-image">
+    					        	  <img src="{{asset ('storage/files/properties/1668164393_636e2b29df6d9.jpg') }}" alt="corousel-image">
     					          </div>
     					          <div class="item">
-    					        	  <img src="assets/images/apartment/apartment-single-3.jpg" alt="corousel-image">
+    					        	  <img src="{{asset ('storage/files/properties/1668164393_636e2b29df6d9.jpg') }}" alt="corousel-image">
     					          </div>
     					          <div class="item">
-    					        	  <img src="assets/images/apartment/apartment-single-4.jpg" alt="corousel-image">
+    					        	  <img src="{{asset ('storage/files/properties/1668164393_636e2b29df6d9.jpg') }}" alt="corousel-image">
     					          </div>
     					          <div class="item">
-    					        	  <img src="assets/images/apartment/apartment-single-5.jpg" alt="corousel-image">
+    					        	  <img src="{{asset ('storage/files/properties/1668164393_636e2b29df6d9.jpg') }}" alt="corousel-image">
     					          </div>
     					      </div>
-    					  </div> <!-- /.gallery-two -->
+    					  </div> <!-- /.gallery-two --> --}}
     				</div> <!-- /.corousel-gallery-content -->
 
     				<div class="family-apartment-content mobile-extend">
@@ -134,6 +134,7 @@
                         </div><!-- /.tb -->
     					<div class="clearfix"></div><!-- /.clearfix -->
     					<p class="apartment-description default-gradient-before">{{ $property->address }}</p>
+
     					<div class="price-details">
     						<h3>Price Details-</h3>
     						<ul>

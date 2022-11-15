@@ -6,6 +6,7 @@ return [
     'role' => 'Role|Roles',
     'user' => 'User|Users',
     'customer' => 'Customer|Customers',
+    'property' => 'Property|Properties',
     'category' => 'Category|Categories',
     'sub_category' => 'SubCategory|SubCategories',
     'admin' => 'Admin|Admins',

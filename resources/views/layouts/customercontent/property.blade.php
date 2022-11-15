@@ -15,7 +15,7 @@
                 <div class="apartments-content">
                     <div class="image-content">
                        {{-- <a href="{{ url('/') }}/houserent/single_house/{{ $property->id }}"><img src="{{asset ('assets/images/apartment/apartment-one.png') }}" alt="apartment" /><a> --}}
-                       <a href="{{ route('single_house',$property->id) }}"><img src="{{asset ('assets/images/apartment/apartment-one.png') }}" alt="apartment" /><a>
+                       <a href="{{ route('single_house',$property->id) }}"><img src="{{asset ('storage/files/properties/1668164393_636e2b29df6d9.jpg') }}" alt="apartment" /><a>
 
                     </div><!-- /.image-content -->
 

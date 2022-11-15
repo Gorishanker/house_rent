@@ -1,8 +1,8 @@
 @extends('admin.layouts.base')
 @section('content')
     @include('admin.layouts.components.header', [
-        'title' => __('messages.edit', ['name' => trans_choice('content.product', 1)]),
-        // 'breadcrumbs' => Breadcrumbs::render('admin.products.edit'),
+        'title' => __('messages.edit', ['name' => trans_choice('content.category', 1)]),
+        'breadcrumbs' => Breadcrumbs::render('admin.categories.edit'),
     ])
 
     {{-- <!--begin::Post-->
