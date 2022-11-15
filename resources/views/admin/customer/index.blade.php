@@ -1,6 +1,6 @@
 @extends('admin.layouts.base')
 
-@section('admin_filter_form')
+{{-- @section('admin_filter_form')
     {!! Form::open(['route' => 'admin.customers.download', 'method' => 'POST', 'id' => 'filter_data', 'class' => 'form']) !!}
     <!--begin::Card body-->
     <div class="card-body">
@@ -91,7 +91,7 @@
     </div>
     <!--end::Actions-->
     {!! Form::close() !!}
-@endsection
+@endsection --}}
 
 @section('content')
     @include('admin.layouts.components.header', [

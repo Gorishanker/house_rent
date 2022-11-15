@@ -3,7 +3,7 @@
     @if (request()->tab == 'details' || request()->tab == '')
         @include('admin.layouts.components.header', [
             'title' => trans_choice('content.customer', 2),
-            'breadcrumbs' => Breadcrumbs::render('admin.customers.show'),
+            // 'breadcrumbs' => Breadcrumbs::render('admin.customers.show'),
             'btn' => [
                 'status' => true,
                 'route' => route('admin.customers.edit', $customer->id) . '?tab=edit',
@@ -17,7 +17,7 @@
     @if (request()->tab == 'product_history')
         @include('admin.layouts.components.header', [
             'title' => trans_choice('content.customer', 2),
-            'breadcrumbs' => Breadcrumbs::render('admin.customers.show'),
+            // 'breadcrumbs' => Breadcrumbs::render('admin.customers.show'),
             'btn' => [
                 'status' => true,
                 'route' => route('admin.customers.edit', $customer->id) . '?tab=edit',

@@ -80,7 +80,7 @@
         'title' => __('messages.list', [
             'name' => trans_choice('content.category', 2),
         ]),
-        'breadcrumbs' => Breadcrumbs::render('admin.products.index'),
+        // 'breadcrumbs' => Breadcrumbs::render('admin.products.index'),
         'filter' => true,
         'create_btn' => [
             'status' => true,

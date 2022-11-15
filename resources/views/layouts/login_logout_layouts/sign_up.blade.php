@@ -1,6 +1,10 @@
 @extends('layouts.login_logout_layouts.base')
 @section('form')
-
+@if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@endif
 <form class="cd-form" action="{{ route('signup_details') }}" method="post">
     @csrf
     <p class="fieldset">

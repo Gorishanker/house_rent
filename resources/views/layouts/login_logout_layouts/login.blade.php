@@ -1,5 +1,12 @@
 @extends('layouts\login_logout_layouts\base')
 @section('form')
+
+@if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@endif
+{{-- <span class="cd-error-message">{{ $error }}</span> --}}
 <form class="cd-form" action="{{ route('login_coustomer') }}" method="POST">
     @csrf
     <p class="fieldset">
