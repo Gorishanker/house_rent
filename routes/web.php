@@ -89,7 +89,12 @@ Route::group(['middleware' => ['optimizeImages'], 'prefix' => 'admin', 'as' => '
         Route::resource('/products', ProductController::class);
 
         // Category Manager
-
+        Route::controller(CategoryController::class)->group(function () {
+            Route::post('/categories/download', 'export')->name('categories.download');
+            Route::get('/categories/download', 'export')->name('categories.getdownload');
+            Route::post('/categories/import', 'import')->name('categories.import');
+            Route::get('categories/get-format-files', 'downloadImportFormatFile')->name('categories.getfile');
+        });
         Route::resource('/categories', CategoryController::class);
 
         // Property Manager

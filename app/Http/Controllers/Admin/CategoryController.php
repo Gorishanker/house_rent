@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\Admin\CategoryExport;
+use App\Exports\Admin\ProductExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CategoryRequest;
+use App\Imports\Admin\CategoryImport;
 use App\Models\Category;
 use App\Models\CategoryImage;
 // use App\Models\Product;
@@ -12,6 +15,8 @@ use App\Services\FileService;
 use App\Services\ManagerLanguageService;
 // use App\Services\ProductService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CategoryController extends Controller
 {
@@ -161,6 +166,41 @@ class CategoryController extends Controller
         }
         return redirect()->route($this->index_route_name)
             ->with('success', $this->mls->messageLanguage('deleted', 'category', 1));
+    }
+
+    public function export(Request $request)
+    {
+        return (new CategoryExport($request))->download($request->export == 'excel' ? 'categories.xlsx' : 'categories.csv');
+    }
+
+
+
+
+    /**
+     * @return \Illuminate\Support\Collection
+     */
+    public function import(Request $request)
+    {
+        $test = Excel::import(new CategoryImport, $request->file);
+        if (session()->has('error')) {
+            return back()->with('error', session()->get('error'));
+        } else {
+            return back()->with('success', $this->mls->onlyNameLanguage('all_good_title'));
+        }
+    }
+
+    public function downloadImportFormatFile()
+    {
+        $url = '/category_import_format.xlsx';
+        // $fileName = time() . '.xlsx';
+        $filePath = public_path() . $url;
+        $filename = '';
+        $headers = array(
+            'Content-Type' => 'application/vnd.ms-excel',
+            'Content-Disposition' => 'inline; filename="' . 'sasaee.xlsx' . '"'
+        );
+
+        return Response::download($filePath, $filename, $headers);
     }
 
 }

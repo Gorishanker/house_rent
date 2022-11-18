@@ -1,7 +1,7 @@
 @extends('admin.layouts.base')
 
-{{-- @section('admin_filter_form')
-    {!! Form::open(['route' => 'admin.products.download', 'method' => 'POST', 'id' => 'filter_data', 'class' => 'form mb-15']) !!}
+ @section('admin_filter_form')
+    {{-- {!! Form::open(['route' => 'admin.products.download', 'method' => 'POST', 'id' => 'filter_data', 'class' => 'form mb-15']) !!}
     <!--begin::Card body-->
     <div class="card-body">
         <!--begin::Input group-->
@@ -72,8 +72,8 @@
         @include('admin.layouts.components.buttons.exportbtn')
     </div>
     <!--end::Actions-->
-    {!! Form::close() !!}
-@endsection --}}
+    {!! Form::close() !!} --}}
+@endsection
 
 @section('content')
     @include('admin.layouts.components.header', [
@@ -91,12 +91,12 @@
         ],
         'export' => [
             'status' => true,
-            'route' => route('admin.products.getdownload'),
+            'route' => route('admin.categories.getdownload'),
         ],
         'import' => [
             'status' => true,
-            'route' => route('admin.products.import'),
-            'format_file_route' => route('admin.products.getfile'),
+            'route' => route('admin.categories.import'),
+            'format_file_route' => route('admin.categories.getfile'),
         ],
     ])
     @include('admin.layouts.components.datatable_header', [

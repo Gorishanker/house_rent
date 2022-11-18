@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\Category;
 // use App\Models\SubCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use phpDocumentor\Reflection\Types\Integer;
 
 class CategoryService
@@ -102,4 +103,39 @@ class CategoryService
         // }
         return $items;
     }
+
+
+    /**
+     * Insert the specified resource.
+     *
+     * @param Request $request
+     * @return Product
+     */
+    public static function insert(array $data)
+    {
+        $data = Category::insert($data);
+        return $data;
+    }
+
+    /**
+     * Get data for download Report from storage.
+     *
+     * @return Product
+     */
+    public static function downloadCategoryReport()
+    {
+        $data = Category::query()
+            ->select(
+                'id',
+                'name',
+                'slug',
+                DB::raw("(CASE WHEN (is_active = 1) THEN 'Active' ELSE 'Inactive' END) as status"),
+                DB::raw("(DATE_FORMAT(created_at,'%d-%M-%Y')) as created_date"),
+                DB::raw("(DATE_FORMAT(updated_at,'%d-%M-%Y')) as updated_date"),
+            )->orderBy('created_at', 'desc');
+        return $data;
+    }
+
 }
+
+
