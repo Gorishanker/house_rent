@@ -122,6 +122,18 @@ return [
         'upload_categories_images' =>'Upload Category Image',
     ),
 
+    'properties' => array(
+        'id' => 'ID',
+        'name' => 'Name',
+        'status' => 'Status',
+        'upload_property_images' => 'Upload Product Images',
+        'title' => 'Title',
+        'quantity_title' => 'Quantity',
+        'price_title' => 'Price',
+        'import_product' => 'Import Product',
+        'upload_properties_images' =>'Upload Property Image',
+    ),
+
     //Table Title
     'id_title' => 'ID',
     'name_title' => 'Name|Names',

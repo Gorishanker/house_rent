@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\Admin\PropertyExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PropertyRequest;
+use App\Imports\Admin\PropertyImport;
 use App\Models\CategoryImage;
 use App\Models\Property;
 use App\Models\PropertyImage;
@@ -12,8 +14,10 @@ use App\Services\ManagerLanguageService;
 // use App\Services\ProductService;
 use App\Services\PropertyService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
+use Maatwebsite\Excel\Facades\Excel;
 
-class PropertyContrller extends Controller
+class PropertyController extends Controller
 {
     protected $propertyService,$create_view,$index_route_name,$mls,$upload_image_directory;
     public function __construct()
@@ -35,6 +39,7 @@ class PropertyContrller extends Controller
      */
     public function index(Request $request)
     {
+
         if ($request->ajax()) {
             $items = $this->propertyService->datatable();
             $items = PropertyService::search($request, $items);
@@ -62,6 +67,7 @@ class PropertyContrller extends Controller
      */
     public function store(Request $request)
     {
+
         $input = $request->all();
         // dd($input);
         $property = $this->propertyService->create($input);
@@ -185,6 +191,39 @@ class PropertyContrller extends Controller
                 'status_name' => 'error'
             ]);
         }
+    }
+
+    public function export(Request $request)
+    {
+        return (new PropertyExport($request))->download($request->export == 'excel' ? 'properties.xlsx' : 'properties.csv');
+    }
+
+
+    /**
+     * @return \Illuminate\Support\Collection
+     */
+    public function import(Request $request)
+    {
+        $test = Excel::import(new PropertyImport, $request->file);
+        if (session()->has('error')) {
+            return back()->with('error', session()->get('error'));
+        } else {
+            return back()->with('success', $this->mls->onlyNameLanguage('all_good_title'));
+        }
+    }
+
+    public function downloadImportFormatFile()
+    {
+        $url = '/property_import_format.xlsx';
+        // $fileName = time() . '.xlsx';
+        $filePath = public_path() . $url;
+        $filename = '';
+        $headers = array(
+            'Content-Type' => 'application/vnd.ms-excel',
+            'Content-Disposition' => 'inline; filename="' . 'sasaee.xlsx' . '"'
+        );
+
+        return Response::download($filePath, $filename, $headers);
     }
 
 

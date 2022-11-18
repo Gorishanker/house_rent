@@ -1,18 +1,18 @@
 @extends('admin.layouts.base')
 
-{{-- @section('admin_filter_form')
-    {!! Form::open(['route' => 'admin.products.download', 'method' => 'POST', 'id' => 'filter_data', 'class' => 'form mb-15']) !!}
+ @section('admin_filter_form')
+    {!! Form::open(['route' => 'admin.properties.download', 'method' => 'POST', 'id' => 'filter_data', 'class' => 'form mb-15']) !!}
     <!--begin::Card body-->
     <div class="card-body">
         <!--begin::Input group-->
         <div class="row mb-6">
             <!--begin::Label-->
             <label
-                class="col-lg-4 col-form-label required fw-bold fs-6">{{ trans_choice('content.products.name', 1) }}</label>
+                class="col-lg-4 col-form-label required fw-bold fs-6">{{ trans_choice('content.properties.title', 1) }}</label>
             <!--end::Label-->
             <!--begin::Col-->
             <div class="col-lg-8 fv-row">
-                {!! Form::text('name', null, ['placeholder' => __('content.products.name'), 'value' => 'Max', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0 search_input']) !!}
+                {!! Form::text('title', null, ['placeholder' => __('content.properties.title'), 'value' => 'Max', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0 search_input']) !!}
             </div>
             <!--end::Col-->
 
@@ -23,12 +23,12 @@
         <div class="row mb-6">
             <!--begin::Label-->
             <label class="col-lg-4 col-form-label fw-bold fs-6">
-                <span class="required">{{ trans_choice('content.products.id', 1) }}</span>
+                <span class="required">{{ trans_choice('content.properties.id', 1) }}</span>
             </label>
             <!--end::Label-->
             <!--begin::Col-->
             <div class="col-lg-8 fv-row">
-                {!! Form::text('product_id', null, ['placeholder' => __('placeholder.product_id'), 'class' => 'form-control form-control-lg form-control-solid only_number search_input']) !!}
+                {!! Form::text('properties_id', null, ['placeholder' => __('placeholder.property_id'), 'class' => 'form-control form-control-lg form-control-solid only_number search_input']) !!}
             </div>
             <!--end::Col-->
         </div>
@@ -73,7 +73,7 @@
     </div>
     <!--end::Actions-->
     {!! Form::close() !!}
-@endsection --}}
+@endsection
 
 @section('content')
     @include('admin.layouts.components.header', [
@@ -91,12 +91,12 @@
         ],
         'export' => [
             'status' => true,
-            'route' => route('admin.products.getdownload'),
+            'route' => route('admin.properties.getdownload'),
         ],
         'import' => [
             'status' => true,
-            'route' => route('admin.products.import'),
-            'format_file_route' => route('admin.products.getfile'),
+            'route' => route('admin.properties.import'),
+            'format_file_route' => route('admin.properties.getfile'),
         ],
     ])
     @include('admin.layouts.components.datatable_header', [

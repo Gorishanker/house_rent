@@ -2,24 +2,24 @@
 
 namespace App\Imports\Admin;
 
-use App\Models\Product;
+use App\Models\Property;
 use App\Services\HelperService;
 use App\Services\ManagerLanguageService;
-use App\Services\ProductService;
+use App\Services\PropertyService;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\WithStartRow;
 
-class ProductImport implements ToCollection, WithStartRow
+class PropertyImport implements ToCollection, WithStartRow
 {
     protected $mls, $productService, $helperService, $productModel;
 
     public function __construct()
     {
         $this->mls = new ManagerLanguageService('flash');
-        $this->productService = new ProductService();
+        $this->propertyService = new PropertyService();
         $this->helperService = new HelperService();
-        $this->productModel = new Product();
+        $this->propertyModel = new Property();
     }
 
     /**
@@ -35,7 +35,6 @@ class ProductImport implements ToCollection, WithStartRow
      */
     public function collection(Collection $rows)
     {
-        // dd($rows);
         $data = [];
         $i = 0;
         // dd($rows);
@@ -50,19 +49,26 @@ class ProductImport implements ToCollection, WithStartRow
              */
 
             $data[$i]['title'] = $row[0];
-            $data[$i]['name'] = $row[1];
-            $data[$i]['quantity'] = $row[2];
-            $data[$i]['price'] = $row[3];
+            $data[$i]['rent'] = $row[1];
+            $data[$i]['address'] = $row[2];
+            $data[$i]['size'] = $row[3];
+            $data[$i]['room_category'] = $row[4];
+            $data[$i]['additional_facilities'] = $row[5];
+            $data[$i]['apt_overview'] = $row[6];
+            $data[$i]['features'] = $row[7];
+            $data[$i]['slug'] = $row[0];
 
-            if (($row[4] == 'Active') || ($row[4] ==  'active') || ($row[4] ==  '1')) {
+
+
+            if (($row[8] == 'Active') || ($row[8] ==  'active') || ($row[8] ==  '1')) {
                 $data[$i]['is_active'] = 1;
             } else {
                 $data[$i]['is_active'] = 0;
             }
-            $data[$i]['slug'] = $this->helperService->createSlug($this->productModel, 'slug', $row[1]);
+            // $data[$i]['slug'] = $this->helperService->createSlug($this->propertyModel, 'slug', $row[1]);
             $data[$i]['created_at'] = $this->helperService->getCurrentDateTime();
             $i++;
         }
-        $products = $this->productService->insert($data);
+        $products = $this->propertyService->insert($data);
     }
 }

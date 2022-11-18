@@ -33,6 +33,7 @@ return [
     'category_id' => 'Category Id',
     'sub_category_name' => 'SubCategory Name',
     'sub_category_id' => 'SubCategory Id',
+    'property_id'=>'Property Id',
 
     'sale_tax' => 'Sale Tax',
     'select_language' => '---Select Language---',

@@ -35,7 +35,7 @@ class PropertyService
      */
     public static function insert(array $data)
     {
-        $data = Product::insert($data);
+        $data = Property::insert($data);
         return $data;
     }
 
@@ -47,7 +47,7 @@ class PropertyService
      */
     public static function update(array $data, $id)
     {
-        $data = Product::where('id', $id)->update($data);
+        $data = Property::where('id', $id)->update($data);
         return $data;
     }
 
@@ -59,7 +59,7 @@ class PropertyService
      */
     public static function getById($id)
     {
-        $data = Product::find($id);
+        $data = Property::find($id);
         return $data;
     }
 
@@ -71,7 +71,7 @@ class PropertyService
      */
     public static function getByParameters($parameters)
     {
-        $data = Product::query();
+        $data = Property::query();
         foreach ($parameters as $parameter) {
             $data = $data->where($parameter['column_name'], $parameter['value']);
         }
@@ -84,7 +84,7 @@ class PropertyService
      * @param Product $product
      * @return bool
      */
-    public static function delete(Product $product)
+    public static function delete(Property $product)
     {
         $data = $product->delete();
         return $data;
@@ -112,5 +112,28 @@ class PropertyService
             $items = $items->where('is_active', $request->status);
         }
         return $items;
+    }
+
+    public static function downloadPropertyReport()
+    {
+        $data = Property::query()
+            ->select(
+                'id',
+                'title',
+                'rent',
+                'address',
+                'size',
+                'room_category',
+                'additional_facilities',
+                'apt_overview',
+                'features',
+                // 'is_active',
+                'slug',
+                // 'is_active',
+                DB::raw("(CASE WHEN (is_active = 1) THEN 'Active' ELSE 'Inactive' END) as status"),
+                DB::raw("(DATE_FORMAT(created_at,'%d-%M-%Y')) as created_date"),
+                DB::raw("(DATE_FORMAT(updated_at,'%d-%M-%Y')) as updated_date"),
+            )->orderBy('created_at', 'desc');
+        return $data;
     }
 }

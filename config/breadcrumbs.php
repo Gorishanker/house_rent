@@ -73,3 +73,6 @@ return [
     'generator-class' => Diglactic\Breadcrumbs\Generator::class,
 
 ];
+
+
+

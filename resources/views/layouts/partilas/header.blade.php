@@ -100,7 +100,7 @@
                                         <li>
                                             <a href="{{ route('dashboard') }}">Home Layout One</a>
                                         </li>
-                                        {{-- <li>
+                                        <li>
                                             <a href="index02.html">Home Layout Two</a>
                                         </li>
                                         <li>
@@ -120,7 +120,7 @@
                                         </li>
                                         <li>
                                             <a href="index08.html">Home Layout Eight</a>
-                                        </li> --}}
+                                        </li>
                                     </ul>
                                 </li>
                                 <li>
@@ -133,7 +133,7 @@
                                             <a href="apartment.html">All Apartment</a>
                                         </li>
                                         <li>
-                                            <a href="apartment-single.html">Apartment Single</a>
+                                            <a href="http://127.0.0.1:8000/single_house/9">Apartment Single</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -257,3 +257,6 @@
 
 
 </div><!-- /.header-overlay-content -->
+
+
+

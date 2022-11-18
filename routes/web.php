@@ -3,7 +3,7 @@
 use App\Http\Controllers\Admin\AdminErrorPageController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\PropertyContrller;
+use App\Http\Controllers\Admin\PropertyController;
 use App\Http\Controllers\Customer\Auth\CustomerLoginController;
 use App\Http\Controllers\Customer\Auth\HouseRentController;
 use App\Http\Controllers\Customer\Auth\LoginController as AuthLoginController;
@@ -94,7 +94,15 @@ Route::group(['middleware' => ['optimizeImages'], 'prefix' => 'admin', 'as' => '
 
         // Property Manager
 
-        Route::resource('/properties', PropertyContrller::class);
+        Route::controller(PropertyController::class)->group(function () {
+
+            Route::post('/properties/download', 'export')->name('properties.download');
+            Route::get('/properties/download', 'export')->name('properties.getdownload');
+            Route::post('/properties/import', 'import')->name('properties.import');
+            Route::get('properties/get-format-files', 'downloadImportFormatFile')->name('properties.getfile');
+        });
+
+        Route::resource('/properties', PropertyController::class);
 
         //Setting manager
         Route::controller(SettingController::class)->group(function () {
