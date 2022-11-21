@@ -104,6 +104,7 @@ Route::group(['middleware' => ['optimizeImages'], 'prefix' => 'admin', 'as' => '
             Route::post('/properties/download', 'export')->name('properties.download');
             Route::get('/properties/download', 'export')->name('properties.getdownload');
             Route::post('/properties/import', 'import')->name('properties.import');
+            Route::post('/properties/add_property', 'add_property')->name('properties.add_property');
             Route::get('properties/get-format-files', 'downloadImportFormatFile')->name('properties.getfile');
         });
 

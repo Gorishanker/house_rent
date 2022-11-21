@@ -8,6 +8,9 @@ $btn['status'] = isset($btn['status']) ? $btn['status'] : false;
 $btn['classname'] = isset($btn['classname']) ? $btn['classname'] : 'btn-primary';
 
 $import['status'] = isset($import['status']) ? $import['status'] : false;
+
+$add_new['status'] = isset($add_new['status']) ? $add_new['status'] : false;
+
 @endphp
 <!--begin::Custom Page Header Toolbar-->
 <div class="toolbar" id="kt_toolbar">
@@ -127,6 +130,101 @@ $import['status'] = isset($import['status']) ? $import['status'] : false;
                     <!--end::Wrapper-->
                 @endif
             @endif
+
+
+
+
+
+
+
+
+
+
+
+            @if ($add_new['status'] == true)
+                @if (isset($add_new['route']))
+                    <!--begin::Wrapper-->
+                    <div class="me-4">
+                        <!--begin::Menu-->
+                        <a href="#" class="btn btn-sm btn-flex btn-light btn-active-primary fw-bolder"
+                            data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end"
+                            data-kt-menu-flip="top-end">
+                            <!--begin::Svg Icon | path: icons/duotone/Text/Filter.svg-->
+                            <span class="svg-icon svg-icon-2 svg-icon-gray-500 me-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+
+                                    <rect fill="#000000" x="4" y="11" width="16" height="2" rx="1" />
+                                    <rect fill="#000000" opacity="0.5"
+                                        transform="translate(12.000000, 12.000000) rotate(-270.000000) translate(-12.000000, -12.000000)"
+                                        x="4" y="11" width="16" height="2" rx="1" />
+                                </svg>
+                            </span>
+                            <!--end::Svg Icon-->{{ trans_choice('content.properties.add_new',1) }}
+                        </a>
+                        <!--begin::Menu 1-->
+                        <div class="menu menu-sub menu-sub-dropdown w-500px w-md-500px" data-kt-menu="true">
+                            <!--begin::Header-->
+                            <div class="px-7 py-5">
+                                <div class="fs-5 text-dark fw-bolder">{{ trans_choice('content.properties.add_new',1) }}
+                                </div>
+                            </div>
+                            <!--end::Header-->
+                            <!--begin::Menu separator-->
+                            <div class="separator border-gray-200"></div>
+                            <!--end::Menu separator-->
+                            <!--begin::Form-->
+                            <form action="{{ $add_new['route'] }}" method="post"
+                                class="form" enctype="multipart/form-data" id="AddProperty" >
+                                @csrf
+                                <div class="px-7 py-5">
+                                    <!--begin::Input group-->
+                                    @include('admin.property.form')
+                                    <!--end::Input group-->
+
+                                    <!--begin::Actions-->
+                                    <div class="d-flex justify-content-end">
+
+                                        {{-- <button type="button" class="btn btn-primary me-2">
+                                            <a href="{{ $import['format_file_route'] }}" target="_blank"
+                                                class="text-white">{{ __('content.download_format_title') }}</a>
+                                        </button> --}}
+
+                                        <button type="button" id="add_property_btn"
+                                            class="btn btn-sm btn-info me-2">{{ trans_choice('content.properties.add_new',1) }}</button>
+                                    </div>
+                                    <!--end::Actions-->
+                                </div>
+                            </form>
+                            {{-- {!! Form::close() !!} --}}
+                            <!--end::Form-->
+                        </div>
+                        <!--end::Menu 1-->
+                        <!--end::Menu-->
+                    </div>
+                    <!--end::Wrapper-->
+                @endif
+            @endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             @if ($export['status'] == true)
                 @if (isset($export['route']))
                     <!--begin::Export-->

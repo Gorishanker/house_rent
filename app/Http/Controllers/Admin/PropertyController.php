@@ -199,6 +199,30 @@ class PropertyController extends Controller
     }
 
 
+
+
+
+    public function add_property(Request $request)
+    {
+
+        $input = $request->all();
+        // dd($input);
+        $property = $this->propertyService->create($input);
+
+        $property_images = [];
+
+        if ($request->hasFile('property_images')) {
+            $images = FileService::multipleImageUploader($request, 'property_images', $this->upload_image_directory);
+
+            for ($i = 0; $i < count($images); $i++) {
+                $property_images[$i]['property_id'] = $property->id;
+                $property_images[$i]['name'] = $images[$i];
+            }
+            PropertyImage::insert($property_images);
+        }
+        return redirect()->route($this->index_route_name)->with('status', 'Ajax Form Data Has Been validated and store into database');
+    }
+
     /**
      * @return \Illuminate\Support\Collection
      */

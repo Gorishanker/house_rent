@@ -132,6 +132,7 @@ return [
         'price_title' => 'Price',
         'import_product' => 'Import Product',
         'upload_properties_images' =>'Upload Property Image',
+        'add_new' => 'Add New Property',
     ),
 
     //Table Title

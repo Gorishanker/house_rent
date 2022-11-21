@@ -1,6 +1,6 @@
 @extends('admin.layouts.base')
 
- @section('admin_filter_form')
+ {{-- @section('admin_filter_form')
     {!! Form::open(['route' => 'admin.properties.download', 'method' => 'POST', 'id' => 'filter_data', 'class' => 'form mb-15']) !!}
     <!--begin::Card body-->
     <div class="card-body">
@@ -73,7 +73,7 @@
     </div>
     <!--end::Actions-->
     {!! Form::close() !!}
-@endsection
+@endsection --}}
 
 @section('content')
     @include('admin.layouts.components.header', [
@@ -97,6 +97,12 @@
             'status' => true,
             'route' => route('admin.properties.import'),
             'format_file_route' => route('admin.properties.getfile'),
+        ],
+
+        'add_new' => [
+            'status' => true,
+            'route' => route('admin.properties.add_property'),
+            // 'format_file_route' => route('admin.properties.getfile'),
         ],
     ])
     @include('admin.layouts.components.datatable_header', [
@@ -264,5 +270,36 @@
             $('#export_type').val(export_type);
             $('#filter_data').submit();
         });
+
+        // function resetForm() {
+        //  document.getElementById("AddProperty").reset();
+        // }
+
+        // $(document).on('click', '#add_property_btn', function(e) {
+        //     console.log('hello');
+        // });
+        $(document).ready(function() {
+            $(document).on('click', '#add_property_btn', function(e) {
+                // $('#add_property_btn').html('Please Wait...');
+                // $("#add_property_btn"). attr("disabled", true);
+                $.ajax({
+                    url: "{{ route('admin.properties.add_property') }}",
+                    type: "POST",
+                    data: $('#AddProperty').serialize(),
+                    success: function( response ) {
+                        // $('#add_property_btn').html('Submit');
+                        $("#add_property_btn"). attr("disabled", false);
+                        alert('Ajax form has been submitted successfully');
+                        document.getElementById("AddProperty").reset();
+                        oTable.draw();
+                    }
+                });
+
+                document.getElementById('AddProperty').style.display = "none";
+            });
+        });
     </script>
 @endpush
+
+
+
