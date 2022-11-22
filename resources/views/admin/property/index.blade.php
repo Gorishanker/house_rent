@@ -220,9 +220,9 @@
                         return `<div class="flex justify-left items-center"> ${button} </div>`;
 
                     }
-                }
-            , ]
-        , });
+                },
+             ],
+         });
     });
 
     $(document).on('click', '.clsdelete', function() {
@@ -292,7 +292,7 @@
             var size = $("#size").val();
             var room_category = $("#room_category").val();
             var additional_facilities = $("#additional_facilities").val();
-            var room_category = $("#apt_overview").val();
+            var apt_overview = $("#apt_overview").val();
             var features = $("#features").val();
 
             $.ajax({
@@ -306,17 +306,22 @@
                     size: size,
                     room_category: room_category,
                     additional_facilities: additional_facilities,
-                    room_category: room_category,
+                    apt_overview: apt_overview,
                     features: features,
                  },
-                 success: function(data) {
-                    console.log(data.error)
-                    if ($.isEmptyObject(data.error)) {
+                 success: function(response) {
+                    // console.log(response.error)
+                    if ($.isEmptyObject(response.error)) {
 
-                        alert(data.success);
+                        // alert(response.success);
+                        // $("#AddProperty")[0].reset();
+                        document.getElementById("AddProperty").reset();
+
+                            document.getElementById("add_new_properties").style.display = 'none';
+                        oTable.draw();
                     } else {
 
-                        printErrorMsg(data.error);
+                        printErrorMsg(response.error);
                     }
                 }
             });
@@ -324,11 +329,14 @@
 
         function printErrorMsg(msg) {
             $.each(msg, function(key, value) {
-                console.log(key);
+                // console.log(value);
                 $('.' + key + '_err').text(value);
             });
 
+
+
         }
+
     });
 
 </script>

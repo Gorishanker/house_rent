@@ -130,7 +130,7 @@ $add_new['status'] = isset($add_new['status']) ? $add_new['status'] : false;
             <!--begin::Wrapper-->
             <div class="me-4">
                 <!--begin::Menu-->
-                <a href="#" class="btn btn-sm btn-flex btn-light btn-active-primary fw-bolder" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
+                <a href="#" class="btn btn-sm btn-flex btn-light btn-active-primary fw-bolder"  data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
                     <!--begin::Svg Icon | path: icons/duotone/Text/Filter.svg-->
                     <span class="svg-icon svg-icon-2 svg-icon-gray-500 me-1">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -142,7 +142,7 @@ $add_new['status'] = isset($add_new['status']) ? $add_new['status'] : false;
                     <!--end::Svg Icon-->{{ trans_choice('content.properties.add_new',1) }}
                 </a>
                 <!--begin::Menu 1-->
-                <div class="menu menu-sub menu-sub-dropdown w-500px w-md-500px" data-kt-menu="true">
+                <div class="menu menu-sub menu-sub-dropdown w-500px w-md-500px" id="add_new_properties" data-kt-menu="true">
                     <!--begin::Header-->
                     <div class="px-7 py-5">
                         <div class="fs-5 text-dark fw-bolder">{{ trans_choice('content.properties.add_new',1) }}
@@ -169,7 +169,7 @@ $add_new['status'] = isset($add_new['status']) ? $add_new['status'] : false;
                             <!--begin::Col-->
                             <div class="col-lg-4 fv-row">
                                 {!! Form::text('title', null, ['placeholder' => trans_choice('content.title_title', 1), 'id'=>'title' , 'class' => 'form-control form-control-lg form-control-solid']) !!}
-                                <span class="text-danger error-text address_err"></span>
+                                <span class="text-danger error-text title_err"></span>
                             </div>
                             <!--end::Col-->
 
@@ -179,7 +179,7 @@ $add_new['status'] = isset($add_new['status']) ? $add_new['status'] : false;
                             <!--begin::Col-->
                             <div class="col-lg-4 fv-row">
                                 {!! Form::number('rent', null, ['placeholder' => trans_choice('content.rent_title', 1),'id'=>'rent', 'value' => 'Max', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0']) !!}
-                                <span class="text-danger error-text address_err"></span>
+                                <span class="text-danger error-text rent_err"></span>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -208,8 +208,8 @@ $add_new['status'] = isset($add_new['status']) ? $add_new['status'] : false;
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-4 fv-row">
-                                {!! Form::text('size', null, ['placeholder' => trans_choice('content.size_title', 1), 'id'=>'room_category', 'class' => 'form-control form-control-lg form-control-solid']) !!}
-                                <span class="text-danger error-text address_err"></span>
+                                {!! Form::text('size', null, ['placeholder' => trans_choice('content.size_title', 1), 'id'=>'size', 'class' => 'form-control form-control-lg form-control-solid']) !!}
+                                <span class="text-danger error-text size_err"></span>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -226,7 +226,7 @@ $add_new['status'] = isset($add_new['status']) ? $add_new['status'] : false;
                             <!--begin::Col-->
                             <div class="col-lg-4 fv-row">
                                 {!! Form::text('room_category', null, ['placeholder' => trans_choice('content.room_category_title', 1), 'id'=>'room_category', 'class' => 'form-control form-control-lg form-control-solid']) !!}
-                                <span class="text-danger error-text address_err"></span>
+                                <span class="text-danger error-text room_category_err"></span>
                             </div>
                             <!--end::Col-->
 
@@ -239,7 +239,7 @@ $add_new['status'] = isset($add_new['status']) ? $add_new['status'] : false;
                             <!--begin::Col-->
                             <div class="col-lg-4 fv-row">
                                 {!! Form::text('additional_facilities', null, ['placeholder' => trans_choice('content.additional_facilities_title', 1), 'id'=>'additional_facilities', 'class' => 'form-control form-control-lg form-control-solid']) !!}
-                                <span class="text-danger error-text address_err"></span>
+                                <span class="text-danger error-text additional_facilities_err"></span>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -256,7 +256,7 @@ $add_new['status'] = isset($add_new['status']) ? $add_new['status'] : false;
                             <!--begin::Col-->
                             <div class="col-lg-4 fv-row">
                                 {!! Form::text('apt_overview', null, ['placeholder' => trans_choice('content.apt_overview_title', 1), 'id'=>'apt_overview', 'class' => 'form-control form-control-lg form-control-solid']) !!}
-                                <span class="text-danger error-text address_err"></span>
+                                <span class="text-danger error-text apt_overview_err"></span>
                             </div>
                             <!--end::Col-->
 
@@ -269,7 +269,7 @@ $add_new['status'] = isset($add_new['status']) ? $add_new['status'] : false;
                             <!--begin::Col-->
                             <div class="col-lg-4 fv-row">
                                 {!! Form::text('features', null, ['placeholder' => trans_choice('content.features_title', 1), 'id'=>'features', 'class' => 'form-control form-control-lg form-control-solid']) !!}
-                                <span class="text-danger error-text address_err"></span>
+                                <span class="text-danger error-text features_err"></span>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -332,8 +332,8 @@ $add_new['status'] = isset($add_new['status']) ? $add_new['status'] : false;
                 <!--end::Card body-->
 
                 @push('scripts')
-                <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js') }}"></script>
-                {!! JsValidator::formRequest('App\Http\Requests\Admin\PropertyRequest', 'form') !!}
+                {{-- <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js') }}"></script> --}}
+                {{-- {!! JsValidator::formRequest('App\Http\Requests\Admin\PropertyRequest', 'form') !!} --}}
 
                 <script>
                     $('#property_image').on('change', function() {
