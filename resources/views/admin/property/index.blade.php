@@ -241,6 +241,8 @@
         });
     </script>
 
+
+
     <script>
         $('#extraSearch').on('click', function() {
             //extraSearch is id of search button....
@@ -278,8 +280,11 @@
         // $(document).on('click', '#add_property_btn', function(e) {
         //     console.log('hello');
         // });
+
+
         $(document).ready(function() {
             $(document).on('click', '#add_property_btn', function(e) {
+                e.preventDefault();
                 // $('#add_property_btn').html('Please Wait...');
                 // $("#add_property_btn"). attr("disabled", true);
                 $.ajax({
@@ -295,6 +300,7 @@
                         // document.getElementById('AddProperty'). attr("disabled", false);
                     }
                 });
+                // document.getElementById('loginModal').modal('hide');
             });
         });
     </script>

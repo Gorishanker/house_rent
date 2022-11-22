@@ -27,7 +27,7 @@ class PropertyRequest extends FormRequest
             return [
                 'title' => 'required',
                 'rent' => 'required',
-                'adderss' => 'required',
+                'address' => 'required',
                 'size' => 'required',
                 'room_category' => 'required',
                 'additional_facilities' => 'required',
@@ -38,7 +38,7 @@ class PropertyRequest extends FormRequest
             return [
                 'title' => 'required',
                 'rent' => 'required',
-                'adderss' => 'required',
+                'address' => 'required',
                 'size' => 'required',
                 'room_category' => 'required',
                 'additional_facilities' => 'required',
