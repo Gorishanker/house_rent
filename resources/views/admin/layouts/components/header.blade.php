@@ -195,7 +195,7 @@ $add_new['status'] = isset($add_new['status']) ? $add_new['status'] : false;
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-4 fv-row">
-                                {!! Form::text('address', null, ['placeholder' => trans_choice('content.address_title', 1), 'id'=>'address' 'class' => 'form-control form-control-lg form-control-solid']) !!}
+                                {!! Form::text('address', null, ['placeholder' => trans_choice('content.address_title', 1), 'id'=>'address', 'class' => 'form-control form-control-lg form-control-solid']) !!}
                                 <span class="text-danger error-text address_err"></span>
                             </div>
                             <!--end::Col-->

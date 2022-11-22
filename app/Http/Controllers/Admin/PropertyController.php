@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Exports\Admin\PropertyExport;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
+// use Illuminate\Support\Facades\Validator;
+use Validator;
 use App\Imports\Admin\PropertyImport;
 
 use App\Models\Property;
@@ -209,35 +210,38 @@ class PropertyController extends Controller
             'title' => 'required',
             'rent' => 'required',
             'address' => 'required',
-            'size' => 'required',
+            // 'size' => 'required',
             'room_category' => 'required',
             'additional_facilities' => 'required',
-            'apt_overview' => 'required',
+            // 'apt_overview' => 'required',
             'features' => 'required',
         ]);
-        if ($validator->fails()) {
+        if ($validator->passes()) {
 
-            return response()->json(['error'=>$validator->errors()]);
-        }
-
-
-
-        $input = $request->all();
-        // dd($request);
-        $property = $this->propertyService->create($input);
-
-        $property_images = [];
-
-        if ($request->hasFile('property_images')) {
-            $images = FileService::multipleImageUploader($request, 'property_images', $this->upload_image_directory);
-
-            for ($i = 0; $i < count($images); $i++) {
-                $property_images[$i]['property_id'] = $property->id;
-                $property_images[$i]['name'] = $images[$i];
-            }
-            PropertyImage::insert($property_images);
-        }
         return response()->json(['success'=>'Added new records.']);
+
+        }
+else {
+    return response()->json(['error'=>$validator->errors()]);
+}
+
+
+        // $input = $request->all();
+        // // dd($request);
+        // $property = $this->propertyService->create($input);
+
+        // $property_images = [];
+
+        // if ($request->hasFile('property_images')) {
+        //     $images = FileService::multipleImageUploader($request, 'property_images', $this->upload_image_directory);
+
+        //     for ($i = 0; $i < count($images); $i++) {
+        //         $property_images[$i]['property_id'] = $property->id;
+        //         $property_images[$i]['name'] = $images[$i];
+        //     }
+        //     PropertyImage::insert($property_images);
+        // }
+        // return response()->json(['success'=>'Added new records.']);
         // return redirect()->route($this->index_route_name)->with('status', 'Ajax Form Data Has Been validated and store into database');
     }
 
