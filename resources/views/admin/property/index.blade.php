@@ -289,17 +289,20 @@
                     success: function( response ) {
                         // $('#add_property_btn').html('Submit');
                         $("#add_property_btn"). attr("disabled", false);
-                        alert('Ajax form has been submitted successfully');
+                        // alert('Ajax form has been submitted successfully');
                         document.getElementById("AddProperty").reset();
                         oTable.draw();
+                        // document.getElementById('AddProperty'). attr("disabled", false);
                     }
                 });
-
-                document.getElementById('AddProperty').style.display = "none";
             });
         });
     </script>
 @endpush
+
+
+
+
 
 
 

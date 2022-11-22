@@ -204,9 +204,10 @@ class PropertyController extends Controller
 
     public function add_property(Request $request)
     {
+        // dd()
 
         $input = $request->all();
-        // dd($input);
+        dd($request);
         $property = $this->propertyService->create($input);
 
         $property_images = [];

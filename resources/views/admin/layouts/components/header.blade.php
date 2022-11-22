@@ -189,9 +189,10 @@ $add_new['status'] = isset($add_new['status']) ? $add_new['status'] : false;
                                             <a href="{{ $import['format_file_route'] }}" target="_blank"
                                                 class="text-white">{{ __('content.download_format_title') }}</a>
                                         </button> --}}
+                            <button type="submit" id="add_property_btn" class="btn btn-primary">{{ __('content.create_title') }}</button>
 
-                                        <button type="button" id="add_property_btn"
-                                            class="btn btn-sm btn-info me-2">{{ trans_choice('content.properties.add_new',1) }}</button>
+                                        {{-- <button type="button" id="add_property_btn"
+                                            class="btn btn-sm btn-info me-2">{{ trans_choice('content.properties.add_new',1) }}</button> --}}
                                     </div>
                                     <!--end::Actions-->
                                 </div>
