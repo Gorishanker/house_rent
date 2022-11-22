@@ -285,22 +285,15 @@
         $(document).ready(function() {
             $(document).on('click', '#add_property_btn', function(e) {
                 e.preventDefault();
-                // $('#add_property_btn').html('Please Wait...');
-                // $("#add_property_btn"). attr("disabled", true);
-                $.ajax({
-                    url: "{{ route('admin.properties.add_property') }}",
-                    type: "POST",
-                    data: $('#AddProperty').serialize(),
-                    success: function( response ) {
-                        // $('#add_property_btn').html('Submit');
-                        $("#add_property_btn"). attr("disabled", false);
-                        // alert('Ajax form has been submitted successfully');
-                        document.getElementById("AddProperty").reset();
-                        oTable.draw();
-                        // document.getElementById('AddProperty'). attr("disabled", false);
-                    }
-                });
-                // document.getElementById('loginModal').modal('hide');
+                var _token = $("input[name='_token']").val();
+                var title = $("#title").val();
+                var rent = $("#rent").val();
+                var address = $("#address").val();
+                var size = $("#size").val();
+                var room_category = $("#room_category").val();
+                var additional_facilities = $("#additional_facilities").val();
+                var room_category = $("#apt_overview").val();
+                var additional_facilities = $("#features").val();
             });
         });
     </script>

@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Exports\Admin\PropertyExport;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\PropertyRequest;
+use Illuminate\Support\Facades\Validator;
 use App\Imports\Admin\PropertyImport;
-use App\Models\CategoryImage;
+
 use App\Models\Property;
 use App\Models\PropertyImage;
 use App\Services\FileService;
@@ -202,9 +202,25 @@ class PropertyController extends Controller
 
 
 
-    public function add_property(PropertyRequest $request)
+    public function add_property(Request $request)
     {
-        // dd()
+
+    	$validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'rent' => 'required',
+            'address' => 'required',
+            'size' => 'required',
+            'room_category' => 'required',
+            'additional_facilities' => 'required',
+            'apt_overview' => 'required',
+            'features' => 'required',
+        ]);
+        if ($validator->fails()) {
+
+            return response()->json(['error'=>$validator->errors()]);
+        }
+
+
 
         $input = $request->all();
         // dd($request);
@@ -221,7 +237,8 @@ class PropertyController extends Controller
             }
             PropertyImage::insert($property_images);
         }
-        return redirect()->route($this->index_route_name)->with('status', 'Ajax Form Data Has Been validated and store into database');
+        return response()->json(['success'=>'Added new records.']);
+        // return redirect()->route($this->index_route_name)->with('status', 'Ajax Form Data Has Been validated and store into database');
     }
 
     /**
