@@ -153,8 +153,19 @@ $add_new['status'] = isset($add_new['status']) ? $add_new['status'] : false;
                     <div class="separator border-gray-200"></div>
                     <!--end::Menu separator-->
                     <!--begin::Form-->
+                    <div class="alert alert-danger print-error-msg" style="display:none">
+
+                        <ul></ul>
+
+                      </div>
                     <form action="{{ $add_new['route'] }}" method="post" class="form" enctype="multipart/form-data" id="AddProperty">
                         @csrf
+
+                        <div class="alert alert-success d-none" id="msg_div">
+
+                            <span id="res_message"></span>
+
+                       </div>
                         <div class="px-7 py-5">
                             <!--begin::Input group-->
                             <!--begin::Card body-->
@@ -169,7 +180,7 @@ $add_new['status'] = isset($add_new['status']) ? $add_new['status'] : false;
                             <!--begin::Col-->
                             <div class="col-lg-4 fv-row">
                                 {!! Form::text('title', null, ['placeholder' => trans_choice('content.title_title', 1), 'id'=>'title' , 'class' => 'form-control form-control-lg form-control-solid']) !!}
-                                <span class="text-danger error-text title_err"></span>
+                                <span class="text-danger error-text title_err" id="titleErrorMsg"></span>
                             </div>
                             <!--end::Col-->
 
@@ -179,7 +190,8 @@ $add_new['status'] = isset($add_new['status']) ? $add_new['status'] : false;
                             <!--begin::Col-->
                             <div class="col-lg-4 fv-row">
                                 {!! Form::number('rent', null, ['placeholder' => trans_choice('content.rent_title', 1),'id'=>'rent', 'value' => 'Max', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0']) !!}
-                                <span class="text-danger error-text rent_err"></span>
+                                <span class="text-danger error-text title_err" id="rentErrorMsg"></span>
+                                {{-- <span class="text-danger p-1">{{ $errors->first('rent') }}</span> --}}
                             </div>
                             <!--end::Col-->
                         </div>
@@ -196,7 +208,8 @@ $add_new['status'] = isset($add_new['status']) ? $add_new['status'] : false;
                             <!--begin::Col-->
                             <div class="col-lg-4 fv-row">
                                 {!! Form::text('address', null, ['placeholder' => trans_choice('content.address_title', 1), 'id'=>'address', 'class' => 'form-control form-control-lg form-control-solid']) !!}
-                                <span class="text-danger error-text address_err"></span>
+                                <span class="text-danger error-text title_err" id="addressErrorMsg"></span>
+                                {{-- <span class="text-danger p-1">{{ $errors->first('address') }}</span> --}}
                             </div>
                             <!--end::Col-->
 
@@ -209,7 +222,8 @@ $add_new['status'] = isset($add_new['status']) ? $add_new['status'] : false;
                             <!--begin::Col-->
                             <div class="col-lg-4 fv-row">
                                 {!! Form::text('size', null, ['placeholder' => trans_choice('content.size_title', 1), 'id'=>'size', 'class' => 'form-control form-control-lg form-control-solid']) !!}
-                                <span class="text-danger error-text size_err"></span>
+                                <span class="text-danger error-text title_err" id="sizeErrorMsg"></span>
+                                {{-- <span class="text-danger p-1">{{ $errors->first('size') }}</span> --}}
                             </div>
                             <!--end::Col-->
                         </div>
@@ -226,7 +240,8 @@ $add_new['status'] = isset($add_new['status']) ? $add_new['status'] : false;
                             <!--begin::Col-->
                             <div class="col-lg-4 fv-row">
                                 {!! Form::text('room_category', null, ['placeholder' => trans_choice('content.room_category_title', 1), 'id'=>'room_category', 'class' => 'form-control form-control-lg form-control-solid']) !!}
-                                <span class="text-danger error-text room_category_err"></span>
+                                <span class="text-danger error-text title_err" id="room_categoryErrorMsg"></span>
+                                {{-- <span class="text-danger p-1">{{ $errors->first('room_category') }}</span> --}}
                             </div>
                             <!--end::Col-->
 
@@ -239,7 +254,8 @@ $add_new['status'] = isset($add_new['status']) ? $add_new['status'] : false;
                             <!--begin::Col-->
                             <div class="col-lg-4 fv-row">
                                 {!! Form::text('additional_facilities', null, ['placeholder' => trans_choice('content.additional_facilities_title', 1), 'id'=>'additional_facilities', 'class' => 'form-control form-control-lg form-control-solid']) !!}
-                                <span class="text-danger error-text additional_facilities_err"></span>
+                                <span class="text-danger error-text title_err" id="title_errErrorMsg"></span>
+                                {{-- <span class="text-danger p-1">{{ $errors->first('additional_facilities') }}</span> --}}
                             </div>
                             <!--end::Col-->
                         </div>
@@ -256,7 +272,8 @@ $add_new['status'] = isset($add_new['status']) ? $add_new['status'] : false;
                             <!--begin::Col-->
                             <div class="col-lg-4 fv-row">
                                 {!! Form::text('apt_overview', null, ['placeholder' => trans_choice('content.apt_overview_title', 1), 'id'=>'apt_overview', 'class' => 'form-control form-control-lg form-control-solid']) !!}
-                                <span class="text-danger error-text apt_overview_err"></span>
+                                <span class="text-danger error-text title_err" id="apt_overviewErrorMsg"></span>
+                                {{-- <span class="text-danger p-1">{{ $errors->first('apt_overview') }}</span> --}}
                             </div>
                             <!--end::Col-->
 
@@ -269,7 +286,8 @@ $add_new['status'] = isset($add_new['status']) ? $add_new['status'] : false;
                             <!--begin::Col-->
                             <div class="col-lg-4 fv-row">
                                 {!! Form::text('features', null, ['placeholder' => trans_choice('content.features_title', 1), 'id'=>'features', 'class' => 'form-control form-control-lg form-control-solid']) !!}
-                                <span class="text-danger error-text features_err"></span>
+                                <span class="text-danger error-text title_err" id="featuresErrorMsg"></span>
+                                {{-- <span class="text-danger p-1">{{ $errors->first('features') }}</span> --}}
                             </div>
                             <!--end::Col-->
                         </div>
@@ -332,8 +350,8 @@ $add_new['status'] = isset($add_new['status']) ? $add_new['status'] : false;
                 <!--end::Card body-->
 
                 @push('scripts')
-                {{-- <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js') }}"></script> --}}
-                {{-- {!! JsValidator::formRequest('App\Http\Requests\Admin\PropertyRequest', 'form') !!} --}}
+                {{-- <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js') }}"></script>
+                {!! JsValidator::formRequest('App\Http\Requests\Admin\PropertyRequest', 'form') !!} --}}
 
                 <script>
                     $('#property_image').on('change', function() {

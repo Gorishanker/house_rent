@@ -1,5 +1,16 @@
 @extends('admin.layouts.base')
 
+@push('styles')
+<style>
+#add_new_properties {
+    height: 700px;
+    overflow: auto;
+    width: 700px !important;
+    margin: 10px 0px 0 125px !important;
+  }
+</style>
+@endpush
+
 {{-- @section('admin_filter_form')
     {!! Form::open(['route' => 'admin.properties.download', 'method' => 'POST', 'id' => 'filter_data', 'class' => 'form mb-15']) !!}
     <!--begin::Card body-->
@@ -220,9 +231,9 @@
                         return `<div class="flex justify-left items-center"> ${button} </div>`;
 
                     }
-                },
-             ],
-         });
+                }
+            , ]
+        , });
     });
 
     $(document).on('click', '.clsdelete', function() {
@@ -296,38 +307,57 @@
             var features = $("#features").val();
 
             $.ajax({
-                url: "{{ route('admin.properties.add_property') }}",
-                type: 'POST',
-                data: {
-                    _token: _token,
-                    title: title,
-                    rent: rent,
-                    address: address,
-                    size: size,
-                    room_category: room_category,
-                    additional_facilities: additional_facilities,
-                    apt_overview: apt_overview,
-                    features: features,
-                 },
-                 success: function(response) {
+                url: "{{ route('admin.properties.add_property') }}"
+                , type: 'POST'
+                , data: {
+                    _token: _token
+                    , title: title
+                    , rent: rent
+                    , address: address
+                    , size: size
+                    , room_category: room_category
+                    , additional_facilities: additional_facilities
+                    , apt_overview: apt_overview
+                    , features: features
+                , }
+                , success: function(response) {
                     // console.log(response.error)
                     if ($.isEmptyObject(response.error)) {
 
                         // alert(response.success);
                         // $("#AddProperty")[0].reset();
-                        document.getElementById("AddProperty").reset();
 
-                            document.getElementById("add_new_properties").style.display = 'none';
+                        document.getElementById("AddProperty").reset();
+                        $(".print-error-msg").css('display', 'none');
+                        $(".error-text").css('display', 'none');
+
+                        document.getElementById("add_new_properties").style.display = 'none';
                         oTable.draw();
                     } else {
-
+                        $(".error-text").css('display', 'block');
                         printErrorMsg(response.error);
+                        printErrorsMsg(response.error);
+                        // printErrorMsg(response.error);
                     }
-                }
-            });
-        });
+                },
 
-        function printErrorMsg(msg) {
+            });
+
+            function printErrorsMsg(msg) {
+
+                $(".print-error-msg").find("ul").html('');
+
+                $(".print-error-msg").css('display', 'block');
+
+                $.each(msg, function(key, value) {
+
+                    $(".print-error-msg").find("ul").append('<li>' + value + '</li>');
+
+                });
+
+            }
+
+            function printErrorMsg(msg) {
             $.each(msg, function(key, value) {
                 // console.log(value);
                 $('.' + key + '_err').text(value);
@@ -335,7 +365,10 @@
 
 
 
-        }
+            }
+        });
+
+
 
     });
 
