@@ -221,17 +221,6 @@ class PropertyController extends Controller
         // dd($input);
         $property = $this->propertyService->create($input);
 
-        $property_images = [];
-
-                if ($request->hasFile('property_images')) {
-                    $images = FileService::multipleImageUploader($request, 'property_images', $this->upload_image_directory);
-
-                    for ($i = 0; $i < count($images); $i++) {
-                        $property_images[$i]['property_id'] = $property->id;
-                        $property_images[$i]['name'] = $images[$i];
-                    }
-                    PropertyImage::insert($property_images);
-                }
                 return response()->json(['success'=>'Added new records.']);
 
                 // return response()->json(['success'=>'Added new records.']);
